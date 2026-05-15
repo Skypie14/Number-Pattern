@@ -2,16 +2,20 @@
     box-sizing: border-box;
 }
 
+
+/* */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #eef4fb;
+    /* background-color: #eef4fb;*/
+    background-color: #0d1927;
     color: #1f2937;
 }
 
 .page-header {
     text-align: center;
-    background-color: #1d3557;
+    /* background-color: #1d3557; */
+     background-color: #6552D0;
     color: white;
     padding: 24px 16px;
 }
@@ -35,12 +39,14 @@ body {
 }
 
 .card {
-    background-color: white;
+    /*background-color: white;*/
+    background-color: rgb(131, 157, 172);
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
+
 
 .form-row {
     display: grid;
@@ -83,7 +89,8 @@ button {
     padding: 10px 14px;
     border: none;
     border-radius: 8px;
-    background-color: #457b9d;
+    /* background-color: #457b9d; */
+    background-color: #9225b3; /* Changed line */
     color: white;
     cursor: pointer;
     font-size: 0.95rem;
@@ -157,7 +164,8 @@ button:disabled {
     aspect-ratio: 1 / 1;
     border-radius: 12px;
     border: 2px solid #c6d1dd;
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    /* background: linear-gradient(135deg, #3b82f6, #1d4ed8);  */
+    background: linear-gradient(135deg, #8417b6, #d837d0); /* Changed line */
     color: white;
     font-size: 1.1rem;
     font-weight: bold;
@@ -219,7 +227,8 @@ button:disabled {
 .page-footer {
     text-align: center;
     padding: 18px;
-    background-color: #1d3557;
+    /*background-color:  #1d3557;*/
+    background-color: #6552D0; /* Changed line */
     color: white;
     margin-top: 24px;
 }
