@@ -11,14 +11,7 @@
       <section class="card">
         <h1>Number Pair Match</h1>
 
-        <div class="button-row">
-          <button id="startBtn" type="button">Start Game</button>
-          <button id="hintBtn" type="button">Show Hint</button>
-          <button id="saveBtn" type="button">Save Session</button>
-          <button id="loadBtn" type="button">Load Session</button>
-          <button id="resetBtn" type="button">Reset Game</button>
-          <button id="backBtn" type="button">Back to Settings</button>
-        </div>
+        <!-- Removed buttons from here -Change 2 -->
 
         <div class="stats-grid game-stats-grid">
           <div class="stat-box">
@@ -57,6 +50,32 @@
         <div id="messageArea" class="message-area">
           Click Start Game when ready.
         </div>
+      </section>
+
+      <!-- Created new section and placed the buttons down here - Change 2 -->
+      <section class="card">
+        <div class="button-row">
+          <button id="startBtn" type="button">Start Game</button>
+          <button id="hintBtn" type="button">Show Hint</button>
+          <button id="saveBtn" type="button">Save Session</button>
+          <button id="loadBtn" type="button">Load Session</button>
+          <button id="resetBtn" type="button">Reset Game</button>
+          <button id="backBtn" type="button">Back to Settings</button>
+          <!-- Added the Score and Time displays as people did not see them before - Change 2 -->
+          <div class="stats-grid game-stats-grid">
+          <div class="stat-box">
+            <div class="stat-box">
+            <span class="label">Score</span>
+            <span id="displayScore2">0</span>
+          </div>
+          </div> 
+          <div class="stat-box">
+            <span class="label">Time</span>
+            <span id="displayTime2">0 s</span>
+          </div>
+          </div>
+        </div>
+
       </section>
 
       <section class="card">

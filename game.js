@@ -167,6 +167,7 @@ function GetGameInfo() {
 function startTimer() {
 
   const timerDisplay = document.getElementById("displayTime");
+  const timerDisplay2 = document.getElementById("displayTime2"); // added for change 2 - Change 2
   const timerShow = sessionStorage.getItem("timershow");
 
   if (timerShow === "true") {
@@ -174,15 +175,18 @@ function startTimer() {
      clearInterval(timerInterval);
 
      timerDisplay.textContent = timeLeft + " s";
+     timerDisplay2.textContent = timeLeft + " s";
 
      timerInterval = setInterval(() => {
 
       timeLeft--; //time goes down
       timerDisplay.textContent = timeLeft + " s";
+      timerDisplay2.textContent = timeLeft + " s"; // added for change 2 - Change 2
 
      if (timeLeft <= 0) {
        clearInterval(timerInterval);
        timerDisplay.textContent = "0 s";
+       timerDisplay2.textContent = "0 s"; // added for change 2 - Change 2
        alert("Time's up!");
        lockBoard = true;
      }
@@ -192,6 +196,7 @@ function startTimer() {
   } else {
      clearInterval(timerInterval);
      timerDisplay.textContent = "N/A";
+     timerDisplay2.textContent = "N/A"; // added for change 2 - Change 2
      return;
   }
 }
@@ -216,8 +221,9 @@ document.getElementById("startBtn").addEventListener("click", function() {
 
   document.getElementById("displayMoves").textContent = 0; //changes display to be 0
   document.getElementById("displayScore").textContent = 0;
-  
-
+  document.getElementById("displayScore2").textContent = 0; //added for change 2 - Change 2
+  document.getElementById("displayTime").textContent = timeLeft + " s"; //loads time based on difficulty
+  document.getElementById("displayTime2").textContent = timeLeft + " s"; //loads time based on difficulty - Change 2
   document.getElementById("displayPairsLeft").textContent = totalPairsLeft; //loads how many pairs are left to match
   document.getElementById("displayMatches").textContent = matchedPairs;  //loads how many pairs have been matched so far
   gameAction("Started Game Below");
@@ -342,6 +348,7 @@ function IncreaseScore() {
   }
 
   document.getElementById("displayScore").textContent = score;
+  document.getElementById("displayScore2").textContent = score; // added for change 2 - Change 2
 
 }
 
@@ -358,6 +365,7 @@ function decreaseScore() {
   }
   
   document.getElementById("displayScore").textContent = score;
+  document.getElementById("displayScore2").textContent = score; // added for change 2 - Change 2
 }
 
 function decreasePairs () { //decreases pairs and increases matched pairs
@@ -415,8 +423,12 @@ function checkWin(){
 
     if (score < 0) {
       alert("You Lost!");
+      GameLog("Game Lost. Final Score: " + score); // added Line to log to display if you lost the game - Change 2
+      gameAction("Game Over. You Lost!!!!");
     } else {
       alert("You win!");
+      GameLog("Game Won. Final Score: " + score); // added Line to log to display if you won the game - Change 2 
+      gameAction("Game Over. You Won!!!!");
     }
   }
 }
@@ -535,6 +547,7 @@ document.getElementById("loadBtn").addEventListener("click", function() {
   totalPairsLeft = gameData.totalPairsLeft;
 
   document.getElementById("displayScore").textContent = score;
+  document.getElementById("displayScore2").textContent = score; // added for change 2 - Change 2
   document.getElementById("displayMoves").textContent = TotalMoves;
   document.getElementById("displayPairsLeft").textContent = totalPairsLeft;
   document.getElementById("displayMatches").textContent = matchedPairs;
@@ -581,12 +594,15 @@ const confirmReset = confirm("Are you sure you want to reset the game?");
   //stops timer
   clearInterval(timerInterval);
   document.getElementById("displayTime").textContent = "0 s"; 
+  document.getElementById("displayTime2").textContent = "0 s"; // added for change 2 - Change 2
   // Reset score
   score = 0;
   document.getElementById("displayScore").textContent = 0;
   document.getElementById("displayMoves").textContent = 0;
   document.getElementById("displayMatches").textContent = 0;
   document.getElementById("displayPairsLeft").textContent = 0;
+  document.getElementById("displayTime2").textContent = "0 s"; // added for change 2 - Change 2
+  document.getElementById("displayScore2").textContent = 0; // added for change 2 - Change 2
 
  //deletes board
   const board = document.getElementById("gameBoard");

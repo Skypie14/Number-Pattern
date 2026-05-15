@@ -86,14 +86,16 @@ legend {
 }
 
 button {
-    padding: 10px 14px;
+    /* padding: 10px 14px; */ /* changed the size - Change 2 */
+    padding: 15px 20px;
     border: none;
     border-radius: 8px;
     /* background-color: #457b9d; */
-    background-color: #9225b3; /* Changed line */
+    background-color: #9225b3; /* Changed line - Change 1*/
     color: white;
     cursor: pointer;
-    font-size: 0.95rem;
+    /* font-size: 0.95rem; */
+    font-size: 1rem; /* changed the size - Change 2 */
 }
 
 button:hover {
@@ -165,7 +167,7 @@ button:disabled {
     border-radius: 12px;
     border: 2px solid #c6d1dd;
     /* background: linear-gradient(135deg, #3b82f6, #1d4ed8);  */
-    background: linear-gradient(135deg, #8417b6, #d837d0); /* Changed line */
+    background: linear-gradient(135deg, #8417b6, #d837d0); /* Changed line - Change 1 */
     color: white;
     font-size: 1.1rem;
     font-weight: bold;
@@ -183,7 +185,8 @@ button:disabled {
 }
 
 .number-card.flipped {
-    background: white;
+    /*background: white;*/
+    background: linear-gradient(135deg, #edff87, #ccdf22); /* Changed line - Change 1 */
     color: #1f2937;
 }
 
@@ -228,7 +231,7 @@ button:disabled {
     text-align: center;
     padding: 18px;
     /*background-color:  #1d3557;*/
-    background-color: #6552D0; /* Changed line */
+    background-color: #6552D0; /* Changed line - Change 1 */
     color: white;
     margin-top: 24px;
 }
