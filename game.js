@@ -124,6 +124,54 @@ function GetGameInfo() {
   };
 
 
+  //card shuffle animation - animates the cards shuffling when the game starts, only works if shuffle is enabled by user in settings - Change 3
+  // https://forfrontend.com/animated-css-cards/ 
+  //https://www.w3schools.com/jsref/met_element_getboundingclientrect.asp 
+  // https://www.w3schools.am/js/js_htmldom_animate.html#gsc.tab=0
+  function shuffleCards() {
+
+  const board = document.getElementById("gameBoard");
+  const cards = document.querySelectorAll(".number-card"); //gets gameboard and card
+
+  // gets center of board
+  const boardRect = board.getBoundingClientRect(); //https://www.w3schools.com/jsref/met_element_getboundingclientrect.asp methos that returns the size of element + position
+
+  cards.forEach(card => {
+
+    const cardRect = card.getBoundingClientRect();
+
+    // distance from current position to center
+    const moveX =
+      (boardRect.left + boardRect.width / 2) -
+      (cardRect.left + cardRect.width / 2); // calcs distance from current position to middle X/width
+
+    const moveY = 
+      (boardRect.top + boardRect.height / 2) -
+      (cardRect.top + cardRect.height / 2); // calcs distance from current position to middle Y/height
+ 
+    // places cards in the center to animate
+    card.style.transition = "none";
+    card.style.transform =
+      `translate(${moveX}px, ${moveY}px) scale(0.7)`; // moves from center to the calculated distance
+
+  });
+
+  // forces the browser to remember the first position before animating to the new position - Change 3
+  board.offsetHeight; // https://www.w3schools.com/jsref/prop_element_offsetheight.asp
+
+  // animates to position - Change 3
+  cards.forEach(card => {
+
+    card.style.transition =
+      "transform 0.8s ease";
+
+    card.style.transform =
+      "translate(0px, 0px) scale(1)";
+  });
+}
+
+
+
  // creates the grid for the game based on the board size
  // https://stackoverflow.com/questions/76856866/creating-grid-with-background-color?
  // https://www.javascripttutorial.net/javascript-dom/javascript-classlist/
@@ -214,9 +262,18 @@ document.getElementById("startBtn").addEventListener("click", function() {
   score = 0;  //resets score
   TotalMoves = 0; //resets moves made
   lockBoard = false;
+  shufflecards = sessionStorage.getItem("animations") === "true"; //checks if shuffle is enabled or not - Change 3
+  
 
   GetGameInfo();   //collects game information, makes game grid and then starts the timer
-  createGrid();    
+  createGrid();
+
+  if (shufflecards) { // delays shufffle animation to show it only if its enabled- Change 3
+    setTimeout(() => {
+        shuffleCards();
+    }, 100);
+  }
+
   startTimer();    
 
   document.getElementById("displayMoves").textContent = 0; //changes display to be 0

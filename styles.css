@@ -147,6 +147,10 @@ button:disabled {
     display: grid;
     gap: 12px;
     justify-content: center;
+
+    /* Added overflow and position for card shuffle - Change 3 */
+    overflow: visible;
+    position: relative;
 }
 
 .board-4x4 {
@@ -161,6 +165,7 @@ button:disabled {
     grid-template-columns: repeat(6, 85px);
 }
 
+
 .number-card {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -168,6 +173,13 @@ button:disabled {
     border: 2px solid #c6d1dd;
     /* background: linear-gradient(135deg, #3b82f6, #1d4ed8);  */
     background: linear-gradient(135deg, #8417b6, #d837d0); /* Changed line - Change 1 */
+   
+    /* Added transition for smoother flipping in card shuffle - Change 3 */
+    transition: transform 0.5s ease;
+    position: relative;
+    z-index: 1;
+    /* */
+
     color: white;
     font-size: 1.1rem;
     font-weight: bold;
